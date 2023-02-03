@@ -1,10 +1,24 @@
-import React from 'react'
+import { useState, useCallback } from "react";
 import styled from 'styled-components'
+import Modal from './Modal'
 
 const Box = () => {
+
+  const [isOpenModal, setOpenModal] = useState<boolean>(false);
+  
+  const onClickToggleModal = useCallback(() => {
+    setOpenModal(!isOpenModal);
+  }, [isOpenModal]);
+
   return (
+    <>
+    {isOpenModal && (
+      <Modal onClickToggleModal={onClickToggleModal}>
+        test
+      </Modal>
+    )}
     <Container>
-        <Smallbox>
+        <Smallbox onClick={onClickToggleModal}>
           <h2>Planning</h2>
           <p>We have a design process that ensures projects are being considered not just for the now, but the future as well.</p>
         </Smallbox>
@@ -17,6 +31,7 @@ const Box = () => {
           <p>We create the most efficient and productive material handling solutions to deploy in the most advanced 4.0 Industry smart factories in the world.</p>
         </Smallbox>
     </Container>
+    </>
   )
 }
 
@@ -31,7 +46,7 @@ const Container = styled.div`
     justify-content: center;
     margin: auto;
     margin-top: -100px;
-    margin-bottom: 150px;
+    margin-bottom: 100px;
     z-index: 2;
     position: relative;
 `
