@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState , useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import Main from 'components/MainPhoto';
@@ -9,7 +10,6 @@ import Footer from 'components/Footer';
 import Video from 'components/Video';
 
 
-
 function App() {
 
   const [lang, setLang] = useState('en');
@@ -18,12 +18,12 @@ function App() {
 
         <Body>
         <Header lang={lang} setLang={setLang}></Header>
-            <Main/>
-            <Box/>
-            <Video/>
-            <Intro lang={lang}/>
-            <Contact lang={lang}/>
-            <Footer/>
+        <Main/>
+        <Box/>
+        <Video/>
+        <Intro lang={lang}/>
+        <Contact lang={lang}/>
+        <Footer/>
         </Body>
  
 

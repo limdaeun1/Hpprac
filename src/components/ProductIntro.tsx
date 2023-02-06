@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ProductDummy } from 'data/Product';
+import Swiperslider from './Swiperslider';
+
 
 interface IntroProps {
     lang: string
@@ -11,20 +12,10 @@ const Intro = ({lang}: IntroProps) => {
 
   return (
     <>
-    <Title>Products</Title>
+    <Title className='products'>Products</Title>
     <Hr></Hr>
     <Container>
-        {ProductDummy[lang].map((pro,index)=>(
-        <Box key={index}>
-            <Imagebox>
-                <img src ={pro.img} alt="factory"></img>
-            </Imagebox>
-            <Textbox>
-                <h2>{pro.title}</h2>
-                <p>{pro.description}</p>
-            </Textbox>
-        </Box>
-        ))}
+        <Swiperslider lang={lang}/>
     </Container>
     </>
   )
@@ -43,30 +34,9 @@ const Hr = styled.hr`
 `
 
 const Container = styled.div`
-    height: 600px;
+    height: 700px;
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
-    display: flex;
 `
 
-const Box = styled.div`
-    width: 30%;
-    margin: 5px;
-`
-
-const Imagebox = styled.div`
-    width:100%;
-    height: 53%;
-    overflow:hidden;
-    img{
-        object-fit: cover;
-        width: 400px;
-        height: 300px;
-    }
-`
-
-const Textbox = styled.div`
-    min-height: 200px;
-    width: 400px;
-`

@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   lang: string;
@@ -8,8 +8,23 @@ interface HeaderProps {
 }
 
 const Header = ({lang , setLang }: HeaderProps) => {
+  const location = useLocation();
 
- 
+  useEffect(() => {
+    if (location.pathname === '/main') {
+        document.querySelector('.main')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+    }
+    if (location.pathname === '/video') {
+      document.querySelector('.video')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+    }
+    if (location.pathname === '/products') {
+      document.querySelector('.products')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+    }
+    if (location.pathname === '/contact') {
+      document.querySelector('.contact')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+    }
+    
+  }, [location.pathname]);
 
   return (
     <Container>
@@ -17,16 +32,16 @@ const Header = ({lang , setLang }: HeaderProps) => {
             <img src="img/logo_full.png" alt="logo"></img>
         </Logo>
         <Category>
-            <div>About Us</div>
+            <StyledLink to ='/main'><div>Main</div></StyledLink>
             <img src='img/navibar.gif' alt='bar'></img>
-            <div>Products</div>
+            <StyledLink to ='/video'><div>About us</div></StyledLink>
             <img src='img/navibar.gif' alt='bar'></img>
-            <div>Contact</div>
+            <StyledLink to ='/products'><div>Products</div></StyledLink>
+            <img src='img/navibar.gif' alt='bar'></img>
+            <StyledLink to ='/contact'><div>Contact</div></StyledLink>
             <img src='img/navibar.gif' alt='bar'></img>
             {lang === 'en' ? 
            <ChangeLang onClick={()=>setLang('kr')}>Korean</ChangeLang> : <ChangeLang onClick={()=>setLang('en')}>English</ChangeLang> }
-          
-          {/* <button><Link to="/">스크롤 테스트</Link></button> */}
         </Category>
     </Container>
   )
@@ -37,7 +52,6 @@ const Container = styled.div`
     background-color: white;
     height: 70px;
     display: flex;
-    margin-top: 7px;
     position: sticky;
     top: 0px;
     z-index:3;
@@ -71,3 +85,9 @@ const ChangeLang = styled.div`
       color:#474646
   }
 `
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
+

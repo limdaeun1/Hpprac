@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Main = () => {
 
   return (
-    <Container>
+    <Container className='main'>
         <img src ="img/factory.jpg" alt="factory"></img>
         <Desc>
           {/* <h1>Customized automation solutions</h1> */}

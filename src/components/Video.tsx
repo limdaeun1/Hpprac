@@ -6,7 +6,7 @@ const Video = () => {
 
   return (
 
-    <Container>
+    <Container className='video'>
         <Videowrap>
             <ReactPlayer
                     className="react-player"

@@ -8,7 +8,7 @@ interface ContactProps {
 const Contact = ({lang}:ContactProps) => {
      
   return (
-    <Container>
+    <Container className='contact'>
         <Title>
            <h1>Contact Us</h1>
         </Title>
