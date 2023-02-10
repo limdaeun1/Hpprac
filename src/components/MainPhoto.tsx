@@ -6,10 +6,6 @@ const Main = () => {
   return (
     <Container className='main'>
         <img src ="img/factory.jpg" alt="factory"></img>
-        <Desc>
-          {/* <h1>Customized automation solutions</h1> */}
-          {/* <p>Customized automation solutions</p> */}
-        </Desc>
     </Container>
   )
 }
@@ -19,6 +15,7 @@ export default Main
 const Container = styled.div`
     height: 730px;
     width: 100%;
+    /* min-width: 1500px; */
     img{
         object-fit: cover;
         width: 100%;
@@ -28,23 +25,3 @@ const Container = styled.div`
     position: relative;
 `
 
-const Desc = styled.div`
-  position: absolute;
-	top: 80%;
-	left: 50%;
-  transform: translate( -50%, -50% );
-  color: white;
-  h1{
-    font-size: 2.5rem;
-    font-weight: 600;
-   text-transform: uppercase;
-  }
-  p{
-    font-size: 2rem;
-    font-weight: 400;
-   text-transform: uppercase;
-  }
-  /* font-size: 2rem;
-  font-weight: 600;
-  text-transform: uppercase; */
-`

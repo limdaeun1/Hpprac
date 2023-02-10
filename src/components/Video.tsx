@@ -37,7 +37,7 @@ const Container = styled.div`
     background-color: #303070;
     min-height: 600px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 `
 
 const Videowrap = styled.div`
@@ -48,11 +48,12 @@ const Videowrap = styled.div`
     position: relative;
     top: 60px;
     max-height: 480px;
+    margin-right: 2rem;
 `
 
 const Textbox = styled.div`
     border:2px solid white;
-    width: 500px;
+    width: 400px;
     max-height: 480px;
     position: relative;
     top: 60px;

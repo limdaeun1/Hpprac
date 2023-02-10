@@ -11,11 +11,14 @@ const Header = ({lang , setLang }: HeaderProps) => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === '/main') {
-        document.querySelector('.main')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
-    }
-    if (location.pathname === '/video') {
+    // if (location.pathname === '/main') {
+    //     document.querySelector('.main')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+    // }
+    if (location.pathname === '/about') {
       document.querySelector('.video')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
+    }
+    if (location.pathname === '/solutions') {
+      document.querySelector('.solutions')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
     }
     if (location.pathname === '/products') {
       document.querySelector('.products')?.scrollIntoView({behavior: "smooth", block: "start", inline: "center"});
@@ -32,9 +35,9 @@ const Header = ({lang , setLang }: HeaderProps) => {
             <img src="img/logo_full.png" alt="logo"></img>
         </Logo>
         <Category>
-            <StyledLink to ='/main'><div>Main</div></StyledLink>
+            <StyledLink to ='/about'><div>About</div></StyledLink>
             <img src='img/navibar.gif' alt='bar'></img>
-            <StyledLink to ='/video'><div>About us</div></StyledLink>
+            <StyledLink to ='/solutions'><div>Solutions</div></StyledLink>
             <img src='img/navibar.gif' alt='bar'></img>
             <StyledLink to ='/products'><div>Products</div></StyledLink>
             <img src='img/navibar.gif' alt='bar'></img>

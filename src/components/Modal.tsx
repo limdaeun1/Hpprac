@@ -1,23 +1,24 @@
 import React, { PropsWithChildren } from "react";
+import { useLocation, useNavigate } from "react-router";
 import styled from "styled-components";
 
 interface ModalDefaultType {
-  onClickToggleModal: () => void;
 }
 
-function Modal({onClickToggleModal,children}: PropsWithChildren<ModalDefaultType>) {
+function Modal({children}: PropsWithChildren<ModalDefaultType>) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+
+  if (location.search === '') {
+    return null;
+  }
 
   return (
     <ModalContainer>
       <DialogBox>{children}</DialogBox>
       <Backdrop
-        onClick={(e: React.MouseEvent) => {
-          e.preventDefault();
-
-          if (onClickToggleModal) {
-            onClickToggleModal();
-          }
-        }}
+        onClick={() => navigate('/')}
       />
     </ModalContainer>
   );
@@ -29,6 +30,7 @@ const ModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10000;
 `;
 
 const DialogBox = styled.dialog`
@@ -63,3 +65,4 @@ const Backdrop = styled.div`
 `;
 
 export default Modal;
+

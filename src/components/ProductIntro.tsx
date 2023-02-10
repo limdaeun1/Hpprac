@@ -1,6 +1,7 @@
-import React from 'react'
 import styled from 'styled-components'
-import Swiperslider from './Swiperslider';
+import Card from './Card'
+import Swiperslider from './Swiperslider'
+
 
 
 interface IntroProps {
@@ -13,9 +14,8 @@ const Intro = ({lang}: IntroProps) => {
   return (
     <>
     <Title className='products'>Products</Title>
-    <Hr></Hr>
     <Container>
-        <Swiperslider lang={lang}/>
+        <Swiperslider lang={lang}/>  
     </Container>
     </>
   )
@@ -29,14 +29,22 @@ const Title = styled.h1`
 `
 
 const Hr = styled.hr`
-  margin: 0 50px 10px 50px;
+  margin: 30px 20px;
   border: 1px solid #c2b8b8;
 `
 
 const Container = styled.div`
     height: 700px;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: space-between; */
+    /* align-items: center; */
     margin-bottom: 100px;
+    /* display: flex; */
+    overflow: hidden;
 `
+// const Cardbox = styled.div`
+//     border:2px solid black;
+//     min-width: 33.3%;
+//     height: 600px;
+//     display: flex;
+// `
 
